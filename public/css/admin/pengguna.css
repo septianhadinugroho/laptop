@@ -1,0 +1,24 @@
+.tabel-pengguna {
+    table-layout: fixed;
+    width: 100%;
+}
+.tabel-pengguna th.id-akun,
+.tabel-pengguna td.id-akun {
+    width: 5%;
+}
+.tabel-pengguna th.nama,
+.tabel-pengguna td.nama {
+    width: 20%;
+}
+.tabel-pengguna th.email,
+.tabel-pengguna td.email {
+    width: 45%;
+}
+.tabel-pengguna th.password,
+.tabel-pengguna td.password {
+    width: 20%; 
+}
+.tabel-pengguna th.aksi,
+.tabel-pengguna td.aksi {
+    width: 10%;
+}

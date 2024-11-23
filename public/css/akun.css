@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    background-color: #f5f5f5;
+}
+
+.form-container {
+    background-color: #ffcc00; /* Warna tema kuning */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px; /* Lebar yang lebih besar */
+    position: relative; /* Untuk memposisikan tombol */
+}
+
+/* Mengatur posisi tombol back sejajar dengan kiri atas background */
+.back-btn {
+    position: absolute;
+    top: 15px; /* Jarak dari atas */
+    left: 15px; /* Jarak dari kiri */
+    background-color: #ffffff; /* Warna tombol */
+    color: #000000; /* Warna teks tombol */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #fff0b5;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    background-color: #ffffff; /* Latar belakang putih */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 100%; /* Memperpanjang background putih */
+    max-width: 100%; /* Membuat user-info lebih fleksibel di layar kecil */
+}
+
+.user-info p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+    white-space: nowrap; /* Mencegah teks membungkus */
+    overflow-x: auto; /* Menambahkan scroll horizontal jika teks terlalu panjang */
+}
+
+.user-info p strong {
+    min-width: 100px; /* Lebar minimum label */
+    text-align: left; /* Meratakan teks label */
+    max-width: 100%; /* Membatasi lebar label agar tidak melebihi kontainer */
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Warna merah untuk tombol logout */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Menambah jarak dari background putih */
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    background-color: #ffffff; /* Warna latar belakang putih */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+.welcome-container {
+    text-align: center;
+    padding: 50px;
+    max-width: 600px; /* Optional: Limit max width */
+    width: 100%; /* Make it responsive */
+}
+
+.welcome-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.welcome-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.enter-button {
+    background-color: #ffcc00; /* Warna tombol kuning */
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.enter-button:hover {
+    background-color: #ffd966; /* Warna tombol saat hover */
+}

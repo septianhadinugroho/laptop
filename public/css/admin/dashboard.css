@@ -1,0 +1,21 @@
+/* Chart Section */
+.chart-section {
+    background-color: #f7f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.chart-section canvas {
+    max-height: 350px;
+}
+
+/* Table Section */
+.table-section {
+    margin-bottom: 30px;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

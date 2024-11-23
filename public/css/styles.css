@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+header {
+    padding: 20px 30px;
+    background-color: #ffcc00;
+    border-radius: 15px;
+    text-align: left;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-banner {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.welcome-banner h1 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.menu-item {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #e0e7ff;
+}
+
+.schedule {
+    padding: 20px;
+}
+
+.schedule h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.schedule-item {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.schedule-item p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Carousel */
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Tentang Kami */
+#tentang-kami {
+    background-color: #ffcc00;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#tentang-kami h2 {
+    font-size: 3rem;
+    color: #343a40;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Kotak penjelasan LAPTOP */
+.laptop-box {
+    background-color: #fff7cc;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Kotak Visi dan Misi */
+.visi-box, .misi-box {
+    background-color: #fff7cc;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: 100%;
+    text-align: justify;
+}
+
+.visi-box h3, .misi-box h3 {
+    color: #343a40;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.visi-box p, .misi-box ul {
+    font-size: 1.2rem;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.misi-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.misi-box ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsif Buat Mobile Tentang Kami */
+@media (max-width: 768px) {
+    .visi-box {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    .misi-box {
+        padding: 20px;
+        margin-top: 25px;
+    }
+
+    #tentang-kami h2 {
+        font-size: 2.5rem;
+    }
+
+    .visi-box h3, .misi-box h3 {
+        font-size: 1.7rem;
+    }
+
+    .misi-box ul li {
+        font-size: 1rem;
+    }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 0;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 0;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.nav-item:hover i {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+.nav-item i {
+    font-size: 1.5rem;
+    line-height: 1;
+    z-index: 1;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.lapor {
+    border-radius: 100%;
+    background-color: #ffcc00;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: -1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lapor i {
+    color: #000;
+}
+
+.lapor:hover i {
+    color: #ffffff;
+}

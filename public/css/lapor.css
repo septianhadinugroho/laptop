@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    background-color: #f5f5f5;
+}
+
+.form-container {
+    background-color: #ffcc00; /* Warna tema kuning */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    position: relative; /* Tambahkan untuk memposisikan tombol */
+}
+
+/* Mengatur posisi tombol back sejajar dengan kiri atas background */
+.back-btn {
+    position: absolute;
+    top: 15px; /* Jarak dari atas */
+    left: 15px; /* Jarak dari kiri */
+    background-color: #ffffff; /* Warna tombol */
+    color: #000000; /* Warna teks tombol */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #fff0b5;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control, .form-select, .form-textarea {
+    transition: background-color 0.3s;
+}
+
+.form-control:hover, .form-select:hover, .form-textarea:hover {
+    background-color: #fff0b5; /* Warna kotak saat hover */
+}
+
+.btn-lapor {
+    background-color: #f5f5f5; /* Warna tombol */
+    border: none;
+}
+
+.btn-lapor:hover {
+    background-color: #fff0b5; /* Warna tombol saat hover */
+}
+
+/* CSS Modal untuk ringkasan */
+.modal-content {
+    padding: 20px; /* Jarak antara teks dan tepi kotak */
+    overflow-wrap: break-word; /* Memastikan kata yang panjang terputus ke baris baru */
+    word-wrap: break-word; /* Dukungan tambahan untuk browser lama */
+    word-break: break-word; /* Pecah kata panjang jika diperlukan */
+    white-space: normal; /* Agar teks dapat melipat di dalam kotak */
+    max-width: 100%; /* Pastikan modal tidak melebar lebih dari layar */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center; /* Tombol ditengah */
+}
+
+#downloadLink {
+    display: none; /* Menyembunyikan tombol tanpa menghilangkan fungsinya */
+}        
+
+/* CSS untuk notifikasi */
+#notif {
+    display: none; /* Sembunyikan notifikasi secara default */
+    position: absolute;
+    top: 0px; /* Posisi di atas formulir */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+
+.checkmark {
+    display: none; /* Sembunyikan checkmark secara default */
+    font-size: 40px; /* Ukuran checkmark */
+    color: green; /* Warna checkmark */
+}
+
+.form-text {
+    color: black;
+}
+
+/* Animasi checkmark */
+@keyframes checkmark-animation {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.show-checkmark {
+    display: inline-block; /* Tampilkan checkmark */
+    animation: checkmark-animation 0.5s ease-in-out forwards; /* Terapkan animasi */
+}
+
+.form-submitted {
+    opacity: 0; /* Sembunyikan formulir saat dikirim */
+    transition: opacity 0.5s ease;
+}
+
+.btn-aturan {
+    background-color: #fff0b5; /* Warna kuning muda */
+    border-radius: 15px; /* Sudut melengkung */
+    border: none; /* Menghilangkan garis hitam */
+    display: block; /* Menggunakan display block agar bisa diatur lebar */
+    width: 80%; /* Mengatur lebar tombol agar memanjang */
+    margin: 10px auto; /* Menambahkan jarak atas dan bawah dan menengahkan */
+    padding: 10px; /* Menambahkan padding untuk memperbesar tombol */
+    text-align: center; /* Menengahkan teks dalam tombol */
+    font-weight: bold; /* Menebalkan teks */
+}
+
+.btn-aturan:hover {
+    background-color: #ffe57e;
+}
+
+.modal-title {
+    text-align: center; /* Tetap untuk judul modal */
+}
+
+.modal-body p.text-start {
+    text-align: left; /* Menyusun teks "Kategori berat terdiri dari:" ke kiri */
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 15px; /* Kurangi padding untuk layar kecil */
+    }
+
+    .modal-body p {
+        font-size: 14px; /* Perkecil ukuran font di layar kecil */
+    }
+}
+
+/* Pastikan elemen span di modal juga responsif */
+.modal-body span {
+    display: block; /* Pastikan teks panjang tidak dalam satu baris */
+    overflow-wrap: break-word; /* Pecah kata panjang */
+    white-space: normal; /* Izinkan teks melipat */
+}

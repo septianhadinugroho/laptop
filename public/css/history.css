@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    background-color: #f5f5f5;
+}
+
+.form-container {
+    background-color: #ffcc00; /* Warna tema kuning */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1500px; /* Lebar yang lebih besar */
+    position: relative; /* Untuk memposisikan tombol */
+}
+
+/* Mengatur posisi tombol back sejajar dengan kiri atas background */
+.back-btn {
+    position: absolute;
+    top: 15px; /* Jarak dari atas */
+    left: 15px; /* Jarak dari kiri */
+    background-color: #ffffff; /* Warna tombol */
+    color: #000000; /* Warna teks tombol */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #fff0b5;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    margin-top: 20px;
+    background-color: white; /* Warna latar belakang tabel */
+    border-radius: 8px; /* Sudut melengkung */
+    overflow: hidden; /* Memotong sudut */
+}
+
+.table th, .table td {
+    vertical-align: middle; /* Mengatur posisi teks di tengah sel */
+    padding: 10px; /* Memberikan sedikit ruang di dalam sel */
+}
+
+/* Warna untuk status */
+.status-dalam-antrian {
+    color: red;
+}
+
+.status-sedang-diproses {
+    color: blue;
+}
+
+.status-selesai {
+    color: green;
+}
+
+/* Membuat teks deskripsi wrap ke baris baru */
+.table td:nth-child(7) { /* Kolom ke-7 adalah Deskripsi */
+    word-wrap: break-word; /* Membungkus kata panjang */
+    white-space: pre-wrap; /* Memastikan baris baru dihormati */
+    max-width: 500px; /* Lebar maksimum kolom */
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto; /* Memastikan tabel tetap scrollable */
+    }
+
+    .table td:nth-child(7) { /* Kolom Deskripsi */
+        font-size: 16px; /* Ukuran font lebih kecil */
+        max-width: 150px; /* Kurangi lebar kolom */
+    }
+}
