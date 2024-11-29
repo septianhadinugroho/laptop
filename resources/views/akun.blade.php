@@ -22,6 +22,17 @@
 </head>
 
 <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container-fluid">
+            <a href="/about" class="navbar-brand text-uppercase fw-bold custom-logo">
+                LAPTOP
+            </a>
+            <div class="mx-auto"></div>
+        </div>
+    </nav>
+
     <!-- Awal Akun-->
     <div class="container">
         <div class="form-container">
@@ -44,27 +55,22 @@
     <footer class="fixed-bottom bg-light px-2">
         <nav class="d-flex justify-content-around">
             <div class="nav-item text-center p-2">
-                <a href="/voting" class="text-dark text-decoration-none">
+                <a href="/voting" class="text-decoration-none">
                     <i class="fas fa-up-down"></i><br />Voting
                 </a>
             </div>
             <div class="nav-item text-center p-2">
-                <a href="/history" class="text-dark text-decoration-none">
+                <a href="/history" class="text-decoration-none">
                     <i class="fas fa-history"></i><br />History
                 </a>
             </div>
-            <!-- <div class="nav-item text-center p-2 lapor">
-                <a href="lapor.html" class="text-dark text-decoration-none">
-                    <i class="fas fa-bullhorn"></i><span>Lapor</span>
-                </a>
-            </div> -->
             <div class="nav-item text-center p-2">
-                <a href="/about" class="text-dark text-decoration-none">
+                <a href="/about" class="text-decoration-none">
                     <i class="fas fa-info"></i><br />About
                 </a>
             </div>
             <div class="nav-item text-center p-2">
-                <a href="/akun" class="text-dark text-decoration-none">
+                <a href="/akun" class="text-decoration-none active">
                     <i class="fas fa-user"></i><br />Akun
                 </a>
             </div>

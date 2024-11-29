@@ -11,6 +11,9 @@
     <!-- Icon Web -->
     <link rel="shortcut icon" href="images/iconlaptop.ico" type="image/x-icon">
 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <!-- CSS Eksternal -->
     <link rel="stylesheet" href="css/admin/main.css">
     <link rel="stylesheet" href="css/admin/historylaporan.css">
@@ -26,6 +29,7 @@
             <li><a href="/pengguna"><i class="bi bi-people"></i> Pengguna</a></li>
             <li><a href="/jenis"><i class="bi bi-list-ul"></i> Jenis</a></li>
             <li><a href="/laporan"><i class="bi bi-file-earmark-text"></i> Laporan</a></li>
+            <li><a href="admin/voting"><i class="fas fa-up-down"></i> Voting</a></li>
             <li><a href="/historylaporan" class="active"><i class="bi bi-clock-history"></i> History Laporan</a></li>
             <li><a href="/profile"><i class="bi bi-person-circle"></i> Profile</a></li>
             <li><a href="/logout"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
@@ -41,11 +45,6 @@
                 <a class="navbar-brand">History Laporan</a>
                 <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
                     <li class="nav-item mx-2">
-                        <a href="#" class="nav-link text-dark">
-                            <i class="bi bi-bell"></i> Notifications
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
                         <a href="/profile" class="nav-link text-dark">
                             <i class="bi bi-person-circle"></i> Profile
                         </a>
@@ -60,74 +59,48 @@
                 <table class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Judul</th>
-                            <th>Kategori</th>
+                            <th>Tanggal</th>
+                            <th>Tanggal Selesai</th>
                             <th>Jenis</th>
-                            <th>Deskripsi</th>
-                            <th>Tanggal Laporan</th>
-                            <th>Media</th>
-                            <th>Nama Pelapor</th>
+                            <th>Kategori</th>
                             <th>Lokasi</th>
+                            <th>Deskripsi</th>
+                            <th>File Media</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody id="historyLaporanTable">
-                        <tr>
-                            <td>1</td>
-                            <td>Laporan Kehilangan Laptop</td>
-                            <td>Berat</td>
-                            <td>Elektronik</td>
-                            <td>Laptop hilang di kampus saat jam kuliah.</td>
-                            <td>2024-11-01</td>
-                            <td><a href="#" class="btn btn-secondary btn-sm">Lihat Media</a></td>
-                            <td>John Doe</td>
-                            <td>Kampus Utama</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Laporan Kerusakan Laptop</td>
-                            <td>Berat</td>
-                            <td>Elektronik</td>
-                            <td>Laptop tidak bisa menyala setelah jatuh.</td>
-                            <td>2024-11-02</td>
-                            <td><a href="#" class="btn btn-secondary btn-sm">Lihat Media</a></td>
-                            <td>Jane Smith</td>
-                            <td>Asrama Mahasiswa</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Laporan Kehilangan Charger</td>
-                            <td>Ringan</td>
-                            <td>Aksesoris</td>
-                            <td>Charger hilang saat di kelas.</td>
-                            <td>2024-11-03</td>
-                            <td><a href="#" class="btn btn-secondary btn-sm">Lihat Media</a></td>
-                            <td>Mike Johnson</td>
-                            <td>Kampus Utama</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Laporan Pencurian Laptop</td>
-                            <td>Berat</td>
-                            <td>Elektronik</td>
-                            <td>Laptop dicuri saat ditinggal di perpustakaan.</td>
-                            <td>2024-11-04</td>
-                            <td><a href="#" class="btn btn-secondary btn-sm">Lihat Media</a></td>
-                            <td>Emily Brown</td>
-                            <td>Perpustakaan</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Laporan Kehilangan Mouse</td>
-                            <td>Ringan</td>
-                            <td>Aksesoris</td>
-                            <td>Mouse hilang di ruang komputer.</td>
-                            <td>2024-11-05</td>
-                            <td><a href="#" class="btn btn-secondary btn-sm">Lihat Media</a></td>
-                            <td>Alice White</td>
-                            <td>Ruang Komputer</td>
-                        </tr>
-                    </tbody>
+                    <tbody>
+                        @if ($history->isEmpty())
+                            <tr class="table-empty">
+                                <td colspan="10">Tidak ada laporan yang selesai.</td>
+                            </tr>
+                        @else
+                            @foreach($history as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->pelaporan->judul }}</td>
+                                    <td>{{ $item->pelaporan->tanggal_laporan }}</td>
+                                    <td>{{ $item->tanggal_selesai }}</td>
+                                    <td>{{ $item->pelaporan->jenis->name_jenis }}</td>
+                                    <td>{{ $item->pelaporan->kategori->name }}</td>
+                                    <td>{{ $item->pelaporan->lokasi }}</td>
+                                    <td>{{ $item->pelaporan->deskripsi }}</td>
+                                    <td>
+                                        @if($item->pelaporan->media)
+                                            @foreach(json_decode($item->pelaporan->media, true) as $media)
+                                                <a href="{{ asset('storage/' . $media) }}" target="_blank">Lihat File</a>
+                                            @endforeach
+                                        @else
+                                            Tidak ada media
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->pelaporan->status->nama_status ?? 'Status tidak tersedia' }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                    </tbody>                    
                 </table>
             </div>
         </div>

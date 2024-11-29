@@ -5,3 +5,13 @@
 .table tbody {
     background-color: #e3f2fd;
 }
+.table tbody tr td {
+    vertical-align: middle; /* Untuk meratakan teks secara vertikal */
+    text-align: center;     /* Untuk meratakan teks secara horizontal */
+}
+
+.table-empty td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.2em; /* Opsional: Ukuran font agar terlihat lebih menonjol */
+}

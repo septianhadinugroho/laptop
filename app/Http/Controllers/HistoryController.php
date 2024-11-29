@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryLaporan;
 use App\Models\Pelaporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,11 @@ class HistoryController extends Controller
     }
 
     // history hal admin
-    public function historylaporan(){
-        return view('admin.historylaporan');
+        public function historylaporan()
+    {
+        $history = HistoryLaporan::with(['pelaporan.status', 'pelaporan.jenis', 'pelaporan.kategori'])
+            ->get();
+    
+        return view('admin.historylaporan', compact('history'));
     }
 }

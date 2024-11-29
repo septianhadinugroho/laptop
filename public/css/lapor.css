@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Pastikan halaman penuh */
 }
 
 .form-container {
@@ -115,9 +125,9 @@ body {
     border-radius: 15px; /* Sudut melengkung */
     border: none; /* Menghilangkan garis hitam */
     display: block; /* Menggunakan display block agar bisa diatur lebar */
-    width: 80%; /* Mengatur lebar tombol agar memanjang */
+    width: 40%; /* Mengatur lebar tombol agar memanjang */
     margin: 10px auto; /* Menambahkan jarak atas dan bawah dan menengahkan */
-    padding: 10px; /* Menambahkan padding untuk memperbesar tombol */
+    padding: 5px; /* Menambahkan padding untuk memperbesar tombol */
     text-align: center; /* Menengahkan teks dalam tombol */
     font-weight: bold; /* Menebalkan teks */
 }
@@ -142,6 +152,18 @@ body {
 
     .modal-body p {
         font-size: 14px; /* Perkecil ukuran font di layar kecil */
+    }
+
+    .btn-aturan {
+        background-color: #fff0b5; /* Warna kuning muda */
+        border-radius: 15px; /* Sudut melengkung */
+        border: none; /* Menghilangkan garis hitam */
+        display: block; /* Menggunakan display block agar bisa diatur lebar */
+        width: 60%; /* Mengatur lebar tombol agar memanjang */
+        margin: 10px auto; /* Menambahkan jarak atas dan bawah dan menengahkan */
+        padding: 5px; /* Menambahkan padding untuk memperbesar tombol */
+        text-align: center; /* Menengahkan teks dalam tombol */
+        font-weight: bold; /* Menebalkan teks */
     }
 }
 

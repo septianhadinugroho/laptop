@@ -73,3 +73,22 @@ h2 {
 .logout-btn:hover {
     background-color: #c82333;
 }
+
+.nav-item a {
+    color: #000; /* Hitam */
+}
+
+.nav-item a.active {
+    color: #ffcc00; /* Warna kuning tema */
+    font-weight: bold;
+}
+
+.nav-item a.active i {
+    color: #ffcc00; /* Warna kuning untuk ikon */
+}
+
+.container {
+    flex: 1; /* Isi ruang di antara navbar dan footer */
+    padding-top: 65px; /* Sesuaikan dengan tinggi navbar */
+    padding-bottom: 65px; /* Sesuaikan dengan tinggi footer */
+}

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryLaporan;
 use App\Models\Pelaporan;
 use App\Models\Jenis;
 use App\Models\StatusLaporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LaporanController extends Controller
 {
@@ -63,6 +65,10 @@ class LaporanController extends Controller
             'media' => json_encode($mediaPaths), // Menyimpan path media dalam format JSON
             'status_id' => 1, // Status ID bisa ditetapkan langsung atau dari variabel yang sesuai
         ]);
+
+        // Simpan notifikasi ke session
+        Session::flash('notification', 'Laporan Anda telah berhasil dikirim.');
+
         return redirect()->back()->with('success', 'Laporan berhasil disimpan.');
     }
 
@@ -76,31 +82,51 @@ class LaporanController extends Controller
     }
 
     // laporan halaman admin
-    public function admin() {
-        $pelaporan = Pelaporan::with(['status', 'jenis', 'kategori'])->get();
-        $status = StatusLaporan::all();
-        return view('admin.laporan', compact('pelaporan', 'status'));
-    }
-
-    public function viewadmin($id) {
-        // Mengambil detail laporan berdasarkan ID dengan relasi 'status', 'jenis', dan 'kategori'
-        $pelaporan = Pelaporan::with(['status', 'jenis', 'kategori'])->findOrFail($id);
-
-        return view('admin.laporan_detail', compact('pelaporan'));
-    }
-
-
-    // Mengupdate status laporan
-    public function updateStatus(Request $request, $id)
-    {
-        $pelaporan = Pelaporan::findOrFail($id);
-        $pelaporan->status_id = $request->status_id;
-        $pelaporan->save();
-
-        return redirect()->back()->with('success', 'Status laporan berhasil diupdate.');
-    }
-
-    //menghapus status laporan
+        public function admin() {
+            // Ambil laporan yang belum selesai (status_id != 3) dengan relasinya
+            $pelaporan = Pelaporan::with(['status', 'jenis', 'kategori'])
+            ->where('status_id', '!=', 3)
+            ->get();
+            $status = StatusLaporan::all();
+            return view('admin.laporan', compact('pelaporan', 'status'));
+        }
+    
+        public function viewadmin($id) {
+            // Mengambil detail laporan berdasarkan ID dengan relasi 'status', 'jenis', dan 'kategori'
+            $pelaporan = Pelaporan::with(['status', 'jenis', 'kategori'])->findOrFail($id);
+    
+            return view('admin.laporan_detail', compact('pelaporan'));
+        }
+    
+    
+        // Mengupdate status laporan
+        public function updateStatus(Request $request, $id)
+        {
+            // Cari laporan berdasarkan ID
+            $laporan = Pelaporan::find($id);
+    
+            // Pastikan laporan ditemukan
+            if (!$laporan) {
+                return redirect()->back()->with('error', 'Laporan tidak ditemukan.');
+            }
+    
+            // Update status laporan
+            $laporan->status_id = $request->input('status_id');
+            $laporan->save();
+    
+            //masukkan ke history_laporan
+            if ($laporan->status_id == 3) { // Misalnya status_id 3 berarti selesai
+                HistoryLaporan::create([
+                    'laporan_id' => $laporan->id,
+                    'user_id' => Auth::id(),
+                    'tanggal_selesai' => now(),
+                ]);
+            }
+    
+            // Redirect dengan pesan sukses
+            return redirect()->route('admin.laporan')->with('success', 'Status laporan berhasil diupdate.');
+        }
+        //menghapus status laporan
     public function deleteLaporan($id)
     {
         $laporan = Pelaporan::findOrFail($id);

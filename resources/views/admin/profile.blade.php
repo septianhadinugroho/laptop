@@ -11,6 +11,9 @@
     <!-- Icon Web -->
     <link rel="shortcut icon" href="images/iconlaptop.ico" type="image/x-icon">
 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <!-- CSS Eksternal -->
     <link rel="stylesheet" href="css/admin/profile.css">
 </head>
@@ -25,6 +28,7 @@
             <li><a href="/pengguna"><i class="bi bi-people"></i> Pengguna</a></li>
             <li><a href="/jenis"><i class="bi bi-list-ul"></i> Jenis</a></li>
             <li><a href="/laporan"><i class="bi bi-file-earmark-text"></i> Laporan</a></li>
+            <li><a href="/admin/voting"><i class="fas fa-up-down"></i> Voting</a></li>
             <li><a href="/historylaporan"><i class="bi bi-clock-history"></i> History Laporan</a></li>
             <li><a href="/profile" class="active"><i class="bi bi-person-circle"></i> Profile</a></li>
             <li><a href="/logout"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
@@ -39,11 +43,6 @@
                 </button>
                 <a class="navbar-brand">Profile</a>
                 <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
-                    <li class="nav-item mx-2">
-                        <a href="#" class="nav-link text-dark">
-                            <i class="bi bi-bell"></i> Notifications
-                        </a>
-                    </li>
                     <li class="nav-item mx-2">
                         <a href="/profile" class="nav-link text-dark">
                             <i class="bi bi-person-circle"></i> Profile
@@ -60,11 +59,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="adminName" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="adminName" value="Admin User" readonly>
+                    <input type="text" class="form-control" id="adminName" value="{{ Auth::user()->name }}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="adminEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="adminEmail" value="admin@example.com" readonly>
+                    <input type="email" class="form-control" id="adminEmail" value="{{ Auth::user()->email }}" readonly>
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::firstOrCreate(
             ['email' => 'yusuf@gmail.com'],
             [
-                'name' => 'yusuf',
+                'name' => 'Yusuf',
                 'password' => bcrypt('ucup1234'),
                 'role_id' => 2
             ]
@@ -28,17 +28,17 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::firstOrCreate(
             ['email' => 'septianhadinugroho4@gmail.com'],
             [
-                'name' => 'Septian Hadi Nugroho',
+                'name' => 'Septian',
                 'password' => bcrypt('hadi1234'),
                 'role_id' => 2
             ]
         );
         
         \App\Models\User::firstOrCreate(
-            ['email' => 'adminlaptop123@gmail.com'],
+            ['email' => 'adminlaptop2024@gmail.com'],
             [
-                'name' => 'admin',
-                'password' => bcrypt('admin123'),
+                'name' => 'Admin Laptop',
+                'password' => bcrypt('AdminLaptop-2024'),
                 'role_id' => 1
             ]
         );        

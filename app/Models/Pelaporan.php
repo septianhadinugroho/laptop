@@ -51,19 +51,7 @@ class Pelaporan extends Model
         return $this->hasMany(Voting::class, 'laporan_id');
     }
 
-   // Menghitung total upvotes
-   public function getUpVoteCountAttribute()
-   {
-       return $this->votings()->where('up_vote', 1)->count();  // Menggunakan up_vote = 1 untuk menghitung upvotes
-   }
-
-   // Menghitung total downvotes
-   public function getDownVoteCountAttribute()
-   {
-       return $this->votings()->where('down_vote', 1)->count();  // Menggunakan down_vote = 1 untuk menghitung downvotes
-   }
-   
-   protected static function boot()
+    protected static function boot()
     {
         parent::boot();
 
@@ -72,4 +60,22 @@ class Pelaporan extends Model
             $laporan->votings()->delete(); // Menghapus semua voting terkait
         });
     }
+
+    // Menghitung total upvotes
+    public function getUpVoteCountAttribute()
+    {
+        return $this->votings()->where('up_vote', 1)->count();  // Menggunakan up_vote = 1 untuk menghitung upvotes
+    }
+
+    // Menghitung total downvotes
+    public function getDownVoteCountAttribute()
+    {
+        return $this->votings()->where('down_vote', 1)->count();  // Menggunakan down_vote = 1 untuk menghitung downvotes
+    }
+
+    public function history()
+    {
+        return $this->hasOne(HistoryLaporan::class, 'id');
+    }
+
 }

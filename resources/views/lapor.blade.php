@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="images/iconlaptop.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/lapor.css">
 </head>
 
@@ -42,7 +41,7 @@
 
     <div class="container">
         <div class="form-container">
-            <button class="btn back-btn" onclick="window.location.href='/history'">
+            <button class="btn back-btn" onclick="window.location.href='/voting'">
                 <i class="fas fa-arrow-left"></i>
             </button>
                         
@@ -51,7 +50,7 @@
             </div>
             <h2>Formulir Laporan</h2>
             <button type="button" class="btn-aturan" data-bs-toggle="modal" data-bs-target="#aturanModal">
-                Aturan Pelaporan
+                Peraturan Pelaporan
             </button>
 
             <!-- Formulir Laporan -->
@@ -125,12 +124,13 @@
             @endif
         </div>
     </div>
+
     <!-- Awal Modal Aturan Pelaporan -->
     <div class="modal fade" id="aturanModal" tabindex="-1" aria-labelledby="aturanModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header justify-content-center"> <!-- Tambahkan justify-content-center -->
-                    <h5 class="modal-title" id="aturanModalLabel">Aturan Pelaporan</h5>
+                    <h5 class="modal-title" id="aturanModalLabel">Peraturan Pelaporan</h5>
                 </div>
                 <div class="modal-body text-center">
                     <p><strong>Pelaporan kategori berat hanya dapat dilaporkan setiap hari Kamis.</strong></p>

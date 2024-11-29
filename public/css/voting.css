@@ -130,6 +130,19 @@ body {
     animation: slideUp 0.5s ease forwards;
 }
 
+.nav-item a {
+    color: #000; /* Hitam */
+}
+
+.nav-item a.active {
+    color: #ffcc00; /* Warna kuning tema */
+    font-weight: bold;
+}
+
+.nav-item a.active i {
+    color: #ffcc00; /* Warna kuning untuk ikon */
+}
+
 @keyframes slideUp {
     from {
         transform: translateY(100%);
@@ -207,4 +220,183 @@ body {
         width: 90%; /* Sesuaikan lebar notifikasi */
         font-size: 14px;
     }
+}
+
+.btn-aturan {
+    background-color: #fff0b5; /* Warna kuning muda */
+    border-radius: 15px; /* Sudut melengkung */
+    border: none; /* Menghilangkan garis hitam */
+    display: block; /* Menggunakan display block agar bisa diatur lebar */
+    width: 15%; /* Mengatur lebar tombol agar memanjang */
+    margin: 10px auto; /* Menambahkan jarak atas dan bawah dan menengahkan */
+    padding: 5px; /* Menambahkan padding untuk memperbesar tombol */
+    text-align: center; /* Menengahkan teks dalam tombol */
+    font-weight: bold; /* Menebalkan teks */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-aturan:hover {
+    background-color: #ffe57e;
+}
+
+.modal-title {
+    text-align: center; /* Tetap untuk judul modal */
+}
+
+.modal-body p.text-start {
+    text-align: left; /* Menyusun teks "Kategori berat terdiri dari:" ke kiri */
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 15px; /* Kurangi padding untuk layar kecil */
+    }
+
+    .modal-body p {
+        font-size: 14px; /* Perkecil ukuran font di layar kecil */
+    }
+
+    .btn-aturan {
+        background-color: #fff0b5; /* Warna kuning muda */
+        border-radius: 15px; /* Sudut melengkung */
+        border: none; /* Menghilangkan garis hitam */
+        display: block; /* Menggunakan display block agar bisa diatur lebar */
+        width: 50%; /* Mengatur lebar tombol agar memanjang */
+        margin: 10px auto; /* Menambahkan jarak atas dan bawah dan menengahkan */
+        padding: 5px; /* Menambahkan padding untuk memperbesar tombol */
+        text-align: center; /* Menengahkan teks dalam tombol */
+        font-weight: bold; /* Menebalkan teks */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Pastikan elemen span di modal juga responsif */
+.modal-body span {
+    display: block; /* Pastikan teks panjang tidak dalam satu baris */
+    overflow-wrap: break-word; /* Pecah kata panjang */
+    white-space: normal; /* Izinkan teks melipat */
+}
+
+.container {
+    flex: 1; /* Isi ruang di antara navbar dan footer */
+    padding-top: 75px; /* Sesuaikan dengan tinggi navbar */
+    padding-bottom: 75px; /* Sesuaikan dengan tinggi footer */
+}
+
+.notification-slider {
+    position: fixed;
+    right: 0;
+    top: 60px;
+    width: 300px;
+    background-color: #fff7d7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1050;
+}
+
+.notification-item.seen {
+    background-color: #f1f1f1;
+    border-left: 6px solid #ffcc00;
+}
+
+.notification-slider.show {
+    display: block;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffcc00;
+    color: #000000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.notification-content {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.notification-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item small {
+    color: #000000;
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.notification-wrapper #notificationIcon {
+    font-size: 24px; /* Ukuran ikon lebih besar */
+    color: #000000; /* Warna ikon default (sesuaikan dengan warna item notifikasi) */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+}
+
+.notification-wrapper #notificationIcon:hover {
+    color: #ffcc00; /* Warna saat hover menjadi kuning */
+}
+
+.notification-wrapper #notificationBadge {
+    font-size: 10px; /* Ukuran badge lebih kecil */
+}
+
+.notification-slider .notification-item {
+    background-color: #ffffff;
+}
+
+.notification-slider .notification-item.seen {
+    background-color: #f1f1f1; /* Warna item yang sudah dilihat */
+}
+
+/* Menata tombol filter di tengah */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;;
+}
+
+/* Desain tombol Belum Dibaca dan Sudah Dibaca */
+.unread-button, .read-button {
+    background-color: #ffcc00;
+    border-radius: 10px;
+    padding: 8px 8px;
+    font-size: 12px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Gaya ketika tombol di-hover */
+.unread-button:hover, .read-button:hover {
+    background-color: #e6b800;
+}
+
+/* Tampilan ketika tombol aktif atau dipilih */
+.unread-button:focus, .read-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.notification-time {
+    display: block;
+    margin: 2px 0; /* Mengatur jarak atas dan bawah */
 }
