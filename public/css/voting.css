@@ -400,3 +400,30 @@ body {
     display: block;
     margin: 2px 0; /* Mengatur jarak atas dan bawah */
 }
+
+/* Container untuk media, kita atur agar isinya di tengah */
+.media-container {
+    width: 100%;
+    text-align: center; /* Ini akan memaksa gambar/video potret ke tengah */
+}
+
+/* Style Konsisten untuk Media (LEBIH KECIL) */
+.media-display {
+    display: inline-block; /* Diubah dari 'block' agar text-align:center berfungsi */
+    max-width: 100%;       /* Lebar tidak akan melebihi container */
+    
+    /* === INI BAGIAN PENTING === */
+    /* Kita kecilkan dari 500px menjadi 350px. */
+    /* Anda bisa ubah angka ini jadi 300px atau 400px jika perlu */
+    max-height: 350px;
+    
+    width: auto;           /* Lebar akan menyesuaikan (penting untuk potret) */
+    height: auto;          /* Tinggi akan menyesuaikan */
+    margin: 10px 0;      /* Spasi atas-bawah */
+    border-radius: 8px;
+}
+
+/* Kursor pointer untuk gambar (agar bisa diklik Lightbox) */
+img.media-display {
+    cursor: pointer;
+}

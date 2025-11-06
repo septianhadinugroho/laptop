@@ -14,7 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RoleSeeder::class); // Memastikan role ada lebih dahulu
+        $this->call([
+            RoleSeeder::class,
+            KategoriSeeder::class,
+            JenisSeeder::class,
+            StatusSeeder::class,
+            PelaporanSeeder::class // Pastikan nama filenya benar
+        ]);
 
         \App\Models\User::firstOrCreate(
             ['email' => 'yusuf@gmail.com'],
@@ -26,7 +32,7 @@ class DatabaseSeeder extends Seeder
         );
         
         \App\Models\User::firstOrCreate(
-            ['email' => 'septianhadinugroho4@gmail.com'],
+            ['email' => 'septian@gmail.com'],
             [
                 'name' => 'Septian',
                 'password' => bcrypt('hadi1234'),
@@ -35,10 +41,10 @@ class DatabaseSeeder extends Seeder
         );
         
         \App\Models\User::firstOrCreate(
-            ['email' => 'adminlaptop2024@gmail.com'],
+            ['email' => 'admin@gmail.com'],
             [
                 'name' => 'Admin Laptop',
-                'password' => bcrypt('AdminLaptop-2024'),
+                'password' => bcrypt('admin1234'),
                 'role_id' => 1
             ]
         );        

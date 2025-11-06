@@ -99,11 +99,11 @@
                                 @if ($isImage)
                                     <!-- Gunakan Lightbox2 untuk gambar -->
                                     <a href="{{ asset('storage/' . $media) }}" data-lightbox="laporan-images" data-title="{{ $laporan->judul }}">
-                                        <img src="{{ asset('storage/' . $media) }}" alt="Image" style="width: 1000px; margin: 5px; cursor: pointer; border-radius: 5px; margin-bottom: 20px;">
+                                        <img src="{{ asset('storage/' . $media) }}" alt="Image" class="media-display">
                                     </a>
                                 @elseif (in_array($extension, array_keys($mimeTypes)))
                                     <!-- Tampilkan video -->
-                                    <video controls style="width: 100%; margin: 10px 0; border-radius: 5px;">
+                                    <<video controls class="media-display">
                                         <source src="{{ asset('storage/' . $media) }}" type="{{ $mimeTypes[$extension] }}">
                                         Your browser does not support the video tag.
                                     </video>
@@ -192,9 +192,10 @@
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
-    <!-- JS Eksternal -->
     <script src="js/script.js"></script>
 
     <!-- JS untuk Voting -->
